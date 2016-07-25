@@ -17,7 +17,7 @@ classdef file < matlab.mixin.SetGet
     
 %% dependent properties
 	properties (Dependent)
-        fullname
+        fullname % full file path/name.ext generated 
     end
 
 %% developer properties
@@ -74,6 +74,7 @@ classdef file < matlab.mixin.SetGet
 
     %% dependent methods
         function fullname = get.fullname(self)
+        %% fullname
         % get full file name based on path, name, and ext.
         % error screen '.txt' 'txt' possibility
             self.chk_name() % chk file name
