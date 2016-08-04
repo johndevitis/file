@@ -34,6 +34,7 @@ classdef file < matlab.mixin.SetGet
             end
         end
         
+    %% ordinary
         function chk_name(self,disp_chk)
         %% chk_name
         % * checks for an empty object name, throws an error if found. 
@@ -71,6 +72,23 @@ classdef file < matlab.mixin.SetGet
                 fprintf('Current File: %s \n',self.fullname);
             end
         end
+        
+        function fid = open(self,perm)
+        %% open() - open file with error screening capability.
+        % this function is meant to be a catch-all for catching errors (for
+        % lack of a better word) and aid in scalability
+        %
+        % perm = optional permissions, defaults to read only -> perm = 'r';
+        %
+            if nargin < 2 % error screen null perm entry
+                perm = 'r'; % default to read only
+            end
+            % open file with permissions
+            [fid, errmsg] = fopen(self.fullname,perm);
+            if ~isempty(errmsg)
+                error(errmsg);
+            end
+        end  
 
     %% dependent methods
         function fullname = get.fullname(self)
@@ -90,6 +108,7 @@ classdef file < matlab.mixin.SetGet
 
 %% static methods
 	methods (Static)
+
     end
 
 %% protected methods
