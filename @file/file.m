@@ -46,6 +46,11 @@ classdef file < matlab.mixin.SetGet
                 perm = 'r'; % default to read only
             end
             
+            % if the file doesn't exist choose write
+            if ~exist(self.fullname)
+                perm = 'w';
+            end
+            
             % open file with permissions
             [fid, errmsg] = fopen(self.fullname,perm);
             if ~isempty(errmsg)
@@ -62,11 +67,12 @@ classdef file < matlab.mixin.SetGet
             if isempty(value)
                 error('need a name, dawg');
             end
-            
+             
             % look for embedded path
-            pth = fileparts(value);
+            [pth,nm,xt] = fileparts(value);
             if ~isempty(pth)        % check for included path
                 self.path = pth;    % over write current path
+                value = [nm xt]; % re-set name w/o path
             end
             
             % look for '.' extension

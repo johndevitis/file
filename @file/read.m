@@ -1,7 +1,6 @@
 function contents = read(self)              
 %% read() - read any ascii file line by line
 % each line is saved as a row in a nx1 cell array
-    self.chk_name();
     fid = self.open();
     % loop till end of file or flag
     contents = []; cnt = 1;
