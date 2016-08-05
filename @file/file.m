@@ -5,6 +5,11 @@ classdef file < matlab.mixin.SetGet
 %
 % * class can be constructed on load w/ fullpath or using default temp loc
 %
+% KNOWN BUGS
+% * when constructing path, name, and extension on initial load, file names
+% with a . in them will have extension lost. to avoid this, create instance
+% then assign name = fdir;
+%
 % author: jdv
 % create date: 22-Jul-2016 08:57:19
 
@@ -66,6 +71,12 @@ classdef file < matlab.mixin.SetGet
         % 
             if isempty(value)
                 error('need a name, dawg');
+            end
+            
+            % look for trailing '.'
+            if strcmp(value(end),'.')
+                % remove
+                value = value(1:end-1);
             end
              
             % look for embedded path
