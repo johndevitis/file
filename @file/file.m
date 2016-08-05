@@ -73,6 +73,8 @@ classdef file < matlab.mixin.SetGet
                 error('need a name, dawg');
             end
             
+            chk=0; % check for name assignment
+            
             % look for trailing '.'
             if strcmp(value(end),'.')
                 % remove
@@ -88,9 +90,11 @@ classdef file < matlab.mixin.SetGet
             
             % look for '.' extension
             ind = regexp(value,'\.');
-            if ~isempty(ind)     % multiple extensions
+            if ~isempty(ind) % multiple extensions
                 self.name = value(1:ind(end)-1); % save name
                 self.ext  = value(ind(end):end);   % save last ext 
+            else % no extensions
+                self.name = value; % save plain ol' name
             end
         end
         
@@ -98,7 +102,7 @@ classdef file < matlab.mixin.SetGet
         %% fullname
         % get full file name based on path, name, and ext.
         % error screen '.txt' 'txt' possibility
-            self.chk_name() % chk file name
+%             self.chk_name() % chk file name
             
             % create full path/file name
             fullname = fullfile(self.path,[self.name self.ext]);
