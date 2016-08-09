@@ -7,7 +7,7 @@ classdef file < matlab.mixin.SetGet
 %
 % KNOWN BUGS
 % * when constructing path, name, and extension on initial load, file names
-% with a . in them will have extension lost. to avoid this, create instance
+% with a . in them will have extension lost. TO AVOID THIS, create instance
 % then assign name = fdir;
 %
 % author: jdv
