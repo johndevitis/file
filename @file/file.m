@@ -1,4 +1,4 @@
-classdef file < matlab.mixin.SetGet
+classdef file < handle
 %% class file
 %
 % fileparts wrapper and error screening super class. 
