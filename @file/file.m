@@ -39,7 +39,13 @@ classdef file < handle
             end
         end
         
-    %% ordinary        
+    %% ordinary   
+        function edit(self)
+        %% edit() - open file for editing in matlab editor 
+        % this is equivalent to:
+        %  edit(self.fullname);
+            edit(self.fullname);
+        end
         function fid = open(self,perm)
         %% open() - open file with error screening capability.
         % this function is meant to be a catch-all for catching errors (for
