@@ -10,7 +10,7 @@ classdef file < handle
 % with a . in them will have extension lost. TO AVOID THIS, create instance
 % then assign name = fdir;
 %
-% author: jdv
+% author: john devitis
 % create date: 22-Jul-2016 08:57:19
 
 %% object properties 
