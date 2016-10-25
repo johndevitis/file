@@ -1,6 +1,6 @@
 function chk_name(self,disp_chk)
-%% DEPRECATED
-
+%% DEPRECATED - will be removed in next release
+fprintf('fcn: chk_name is deprecated and will be removed soon. carry on. \n');
 %% chk_name(0)
 % * checks for an empty object name, throws an error if found. 
 % * also checks for hidden path or extension info in name

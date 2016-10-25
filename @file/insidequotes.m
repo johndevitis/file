@@ -3,7 +3,7 @@ function out = insidequotes(in)
 % 
 % 
 % 
-% author: 
+% author: john devitis
 % create date: 04-Aug-2016 04:00:41
 
     % look for anything inside quotes
