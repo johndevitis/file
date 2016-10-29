@@ -1,5 +1,7 @@
 function create_folder(self)
-%%
+%% create_folder()
+%
+% check if directory exists. create folder if doesn't.
 %
 % jdv 08062016
 

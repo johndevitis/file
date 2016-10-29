@@ -1,5 +1,5 @@
 function string2file(self,contents)
-%% cell2file
+%% string2file(contents)
 % 
 % 
 % 
